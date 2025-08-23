@@ -1,0 +1,20 @@
+[project]
+name = "django-rwanda"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "django>=5.2.5",
+    "django-environ>=0.12.0",
+    "djangorestframework>=3.16.1",
+    "djangorestframework-jwt-5>=1.13.0",
+    "psycopg2-binary>=2.9.10",
+]
+
+[dependency-groups]
+dev = [
+    "django-debug-toolbar>=6.0.0",
+    "pytest>=8.4.1",
+    "ruff>=0.12.10",
+]
