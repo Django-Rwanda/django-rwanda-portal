@@ -5,12 +5,10 @@ __pycache__/
 
 # Virtual environment
 .venv/
-env/
 venv/
-ENV/
 
 # Environment files
-.env         # ignore real environment files
+*.env         # ignore real environment files
 !env/.env.example  # keep example tracked
 !.env.example  # keep example tracked
 
