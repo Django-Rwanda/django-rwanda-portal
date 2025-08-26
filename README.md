@@ -144,3 +144,10 @@ Key practices:
   - [Core Layer](./docs/core.md)
 
   - [Development Guide](./DEVELOPMENT_GUIDE.md)
+
+---
+
+## License
+Django Rwanda is released under the [MIT License](./LICENSE).
+
+### Copyright (c) 2025 I. Fils

@@ -4,6 +4,20 @@ These guidelines are designed to help contributors develop efficiently, maintain
 
 ---
 
+### Prerequisites
+
+Before contributing, ensure you have knowledge of or access to the following technologies:
+
+- **Programming Languages**: Python, JavaScript (vanilla)
+- **Frameworks & Libraries**: Django, jQuery
+- **Databases & Caching**: PostgreSQL, Redis
+- **Containerization & Deployment**: Docker, docker swarm, `docker-compose` or Kubernetes, or Docker Compose Cloud Infrastructure (AWS, GCP, Azure, etc.)
+- **Python Dependencies**: Listed in `pyproject.toml`
+- **Package Manager**: `pip` or `uv` for dependency management
+
+
+---
+
 ## Project Structure Overview
 
 Key directories in the project:
@@ -182,3 +196,5 @@ Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`.
 ---
 
 By following these development guidelines, contributors help maintain a consistent, high-quality, and collaborative Django Rwanda project.
+
+---

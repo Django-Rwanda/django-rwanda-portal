@@ -1,10 +1,62 @@
-# Python-generated files
+# Python bytecode
 __pycache__/
-*.py[oc]
-build/
-dist/
-wheels/
-*.egg-info
+*.py[cod]
+*$py.class
 
-# Virtual environments
-.venv
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+
+# Environment files
+.env         # ignore real environment files
+!env/.env.example  # keep example tracked
+!.env.example  # keep example tracked
+
+# Django database
+*.sqlite3
+
+# Django media & static
+media/
+staticfiles/
+src/apps/**/static/
+src/common/static/
+*.log
+
+# Django compiled translation files
+*.pot
+*.mo
+
+# Migrations (optional: track only if you want)
+src/apps/**/migrations/__pycache__/
+src/apps/**/migrations/*.py[cod]
+
+# IDEs / Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+*.swp
+*.swo
+*.bak
+
+# Testing / coverage
+.coverage
+htmlcov/
+*.cover
+coverage.xml
+pytest_cache/
+.pytest_cache/
+.tox/
+
+# Docker override / build files
+docker-compose.override.yml
+docker/*.log
+docker/**/logs/
+
+# Uvicorn / development lock
+uv.lock
