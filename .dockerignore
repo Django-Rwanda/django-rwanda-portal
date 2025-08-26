@@ -1,0 +1,34 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Django specific
+*.log
+*.pot
+*.pyc
+*.pyd
+*.sqlite3
+db.sqlite3
+
+
+# IDE/editor directories
+.vscode/
+.idea/
+*.swp
+
+# Node/npm files (if frontend is co-located)
+node_modules/
+*.tsbuildinfo
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Docker
+./Dockerfile
+./.dockerignore
+
+# Virtual environments
+.venv
+venv

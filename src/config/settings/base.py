@@ -76,7 +76,9 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / "common" / "templates",  # global templates
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -97,11 +99,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 DATABASES = {
-    'default': env.db()     # Reads DATABASE_URL
-#     {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
+    'default': # env.db("DATABASE_URL")     # Reads DATABASE_URL
+    {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
@@ -139,9 +141,49 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = "/static/"
+
+# Extra locations for static files (for dev only)
+STATICFILES_DIRS = [
+    BASE_DIR / "common/static",
+]
+
+# The folder collectstatic will use in production
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# Media files (user uploads)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'common/media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# REST FRAMEWORK
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+
+# PERFORMANCE OPTIMIZATIONS AT SCALE
+
+# Broker URL (Redis example)
+CELERY_BROKER_URL = "redis://localhost:6379/0"
+
+# Optional: backend to store task results
+CELERY_RESULT_BACKEND = "redis://localhost:6379/1"
+
+# Task serialization & timezone
+CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_TASK_SERIALIZER = "json"
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_TIMEZONE = "Africa/Kigali"
+
+# Optional: task soft/hard time limits
+CELERY_TASK_SOFT_TIME_LIMIT = 300  # 5 minutes
+CELERY_TASK_TIME_LIMIT = 600       # 10 minutes
+

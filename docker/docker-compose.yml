@@ -1,0 +1,55 @@
+
+services:
+  project:
+    container_name: django-rwanda
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    image: django-rwanda:v-1.0.0
+    expose:
+      - "8000"
+    ports:
+      - "8080:8000"
+    depends_on:
+      - pg_db
+      - redis_db
+    volumes:
+      - ./src:/app/src:rw
+    env_file:
+      - .env
+    networks:
+      - public_network
+
+  pg_db:
+    image: postgres:17.6-bookworm
+    container_name: django-db
+    env_file:
+      - .env
+    ports:
+      - "2505:5432"
+    volumes:
+      - django-rwanda:/var/lib/postgresql/data:rw
+      - ./init/project:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - public_network
+
+  redis_db:
+    image: redis:7.4.5-bookworm
+    container_name: django-redis-db
+    ports:
+      - "6379:6379"
+    networks:
+      - public_network
+
+volumes:
+  django-rwanda:
+
+networks:
+  public_network:
+    driver: bridge
