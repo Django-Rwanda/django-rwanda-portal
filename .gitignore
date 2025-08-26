@@ -9,8 +9,6 @@ venv/
 
 # Environment files
 .env         # ignore real environment files
-!env/.env.example  # keep example tracked
-!.env.example  # keep example tracked
 
 # Django database
 *.sqlite3
