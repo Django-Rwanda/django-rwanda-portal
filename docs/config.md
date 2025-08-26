@@ -100,7 +100,7 @@ path("analytics/", include(("apps.analytics.urls", "analytics"))),
 
 ```bash
 export DJANGO_SETTINGS_MODULE=config.settings.dev
-python manage.py runserver
+python ./src/manage.py runserver
 ```
 - Using Celery tasks:
 

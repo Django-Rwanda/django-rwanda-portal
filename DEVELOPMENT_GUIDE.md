@@ -108,7 +108,7 @@ Use pytest or Django’s test framework:
 ```bash
 pytest
 # or
-python manage.py test
+python ./src/manage.py test
 ```
 
 - Write tests for:

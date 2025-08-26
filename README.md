@@ -68,22 +68,22 @@ cp env/.env.example env/.env
 
 ```bash
 # makemigrations
-python manage.py makemigrations
+python src/manage.py makemigrations
 # or 
-uv run manage.py makemigrations
+uv run src/manage.py makemigrations
 
 # migrate the database
-python manage.py migrate
+python ./src/manage.py migrate
 # or 
-uv run manage.py migrate
+uv run ./src/manage.py migrate
 ```
 
 5. Start the development server:
 
 ```bash
-uv run manage.py runserver
+uv run ./src/manage.py runserver
 # or 
-python3 manage.py runserver
+python3 ./src/manage.py runserver
 ```
 
 ### Using Docker ***(in progress)***
