@@ -31,7 +31,8 @@ cd django-rwanda
 2. **Install dependencies**:
 
 ```bash
-pip install -r requirements.txt  #or
+pip install -r requirements.txt  
+#or
 uv sync
 ```
 
@@ -43,12 +44,12 @@ cp env/.env.example env/.env
 4. **Run migrations**:
 
 ```bash
-python manage.py migrate
+python src/manage.py migrate
 ```
 5. **Start development server**:
 
 ```bash
-python manage.py runserver
+python src/manage.py runserver
 ```
 
 ---

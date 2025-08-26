@@ -35,6 +35,12 @@ python -m venv env
 source env/bin/activate      # Linux/macOS
 env\Scripts\activate         # Windows
 pip install -r requirements.txt
+
+# run the project
+uv run ./src/manage.py runserver
+# or 
+python ./src/manage.py runserver
+
 ```
 
 ### 2. Create a Branch
@@ -109,7 +115,7 @@ Push your branch to your fork:
 - Run all tests:
 
 ```bash
-python manage.py test
+python src/manage.py test
 # or if using pytest
 pytest
 ```

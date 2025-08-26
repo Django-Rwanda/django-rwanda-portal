@@ -67,16 +67,26 @@ cp env/.env.example env/.env
 4. Run database migrations:
 
 ```bash
+# makemigrations
+python manage.py makemigrations
+# or 
+uv run manage.py makemigrations
+
+# migrate the database
 python manage.py migrate
+# or 
+uv run manage.py migrate
 ```
 
 5. Start the development server:
 
 ```bash
-python manage.py runserver
+uv run manage.py runserver
+# or 
+python3 manage.py runserver
 ```
 
-### Using Docker
+### Using Docker ***(in progress)***
 
 
 To run the project using Docker:
