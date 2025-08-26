@@ -8,6 +8,8 @@ __pycache__/
 venv/
 
 # Environment files
+./docker/.env         # ignore real environment file
+./env/.env         # ignore real environment file
 .env         # ignore real environment files
 *.env         # ignore real environment files
 !env/.env.example  # keep example tracked
