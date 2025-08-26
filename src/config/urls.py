@@ -31,15 +31,15 @@ urlpatterns = [
     path("api/", include(("api.urls", "api"))),
 
     # Apps
-    # path("analytics/", include(("apps.analytics.urls", "analytics"))),
-    # path("comments/", include(("apps.comments.urls", "comments"))),
-    # path("events/", include(("apps.events.urls", "events"))),
-    # path("media/", include(("apps.media.urls", "media"))),
-    # path("messaging/", include(("apps.messaging.urls", "messaging"))),
-    # path("notifications/", include(("apps.notifications.urls", "notifications"))),
-    # path("posts/", include(("apps.posts.urls", "posts"))),
-    # path("tags/", include(("apps.tags.urls", "tags"))),
-    # path("users/", include(("apps.users.urls", "users"))),
+    path("analytics/", include(("apps.analytics.urls", "analytics"))),
+    path("comments/", include(("apps.comments.urls", "comments"))),
+    path("events/", include(("apps.events.urls", "events"))),
+    path("media/", include(("apps.media.urls", "media"))),
+    path("messaging/", include(("apps.messaging.urls", "messaging"))),
+    path("notifications/", include(("apps.notifications.urls", "notifications"))),
+    path("posts/", include(("apps.posts.urls", "posts"))),
+    path("tags/", include(("apps.tags.urls", "tags"))),
+    path("users/", include(("apps.users.urls", "users"))),
 ]
 
 

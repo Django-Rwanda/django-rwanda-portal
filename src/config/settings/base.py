@@ -172,10 +172,10 @@ REST_FRAMEWORK = {
 # PERFORMANCE OPTIMIZATIONS AT SCALE
 
 # Broker URL (Redis example)
-CELERY_BROKER_URL = "redis://localhost:6379/0"
+CELERY_BROKER_URL = env("CELERY_BROKER_URL")
 
 # Optional: backend to store task results
-CELERY_RESULT_BACKEND = "redis://localhost:6379/1"
+CELERY_RESULT_BACKEND = env("CELERY_RESULT_BACKEND")
 
 # Task serialization & timezone
 CELERY_ACCEPT_CONTENT = ["json"]
