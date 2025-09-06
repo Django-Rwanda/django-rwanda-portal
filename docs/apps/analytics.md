@@ -164,3 +164,45 @@ tasks.aggregate_daily_metrics.delay()
 - Provide export endpoints (CSV/Excel reports).
 
 - Build admin dashboards with charts (using Django Admin + Chart.js/Plotly).
+
+---
+
+## Documentation
+
+- [API Layer](../api.md)
+
+-  **Apps – includes**:
+
+    - [Users](./users.md)
+
+    - [Posts](./posts.md)
+
+    - [Analytics](./analytics.md)
+
+    - [Comments](./comments.md)
+
+    - [Events](./event.md)
+
+    - [Media](./media.md)
+
+    - [Messaging](./messaging.md)
+
+    - [Notifications](./notification.md)
+
+    - [Tags](./tags.md)
+
+- [Common Layer](../common.md)
+
+- [Config Layer](../config.md)
+
+- [Core Layer](../core.md)
+
+- [Development Guide](../../DEVELOPMENT_GUIDE.md)
+
+---
+
+## License
+
+This project is licensed under the [MIT License](../../LICENSE)
+
+### Copyright (c) 2025 I. Fils

@@ -18,16 +18,16 @@ DJANGO_ENV = env("DJANGO_ENV")
 
 
 match DJANGO_ENV:
-    case "prod":
+    case "production" | "prod":
         from .prod import *
     
-    case "test":
+    case "test" | "testing" | "tests":
         from .test import *
     
     case "staging":
         from .staging import *
         
-    case "dev":
+    case "development" | "dev" | "local":
         from .dev import *
     
     case _: 

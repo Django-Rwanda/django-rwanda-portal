@@ -1,148 +1,210 @@
-# API Layer
+# API Layer (`src/api/`)
 
 ## Overview
-The **API layer** is the entry point for external clients (frontend applications, mobile apps, or third-party integrations) to interact with the **Django Rwanda** system. It is designed as a **versioned REST API**, ensuring backward compatibility and clear upgrade paths for future improvements.
 
-This layer is **thin** by design: it only handles routing, schema definitions, and delegating requests to the appropriate app logic. All **business logic** is implemented inside the `apps` layer, ensuring separation of concerns.
+The **API layer** is the gateway for external clients—such as frontend applications, mobile apps, or third-party services—to interact with the **Django Rwanda Portal system**.
+
+Designed as a versioned **REST API**, this layer ensures backward compatibility and a clear upgrade path for future changes.
+
+## The API layer is intentionally thin, handling only:
+
+- Routing
+
+- Versioning
+
+- Schema definitions
+
+- Delegating requests to the appropriate app logic
+
+All **business logic** resides in the `apps` layer, maintaining a clean `separation of concerns`.
 
 ---
 
 ## Purpose
-- Provide a **public interface** for all project features (users, posts, comments, etc.).
-- Ensure **API versioning** (e.g., `/api/v1/...`) for smooth evolution of endpoints.
-- Define and document the **schema** for clients using OpenAPI/Swagger.
-- Route incoming requests to the correct **app views**.
+
+- Provide a **public interface** for all project features (`users`, `posts`, `comments`, etc.).
+
+- Maintain API versioning (e.g., `/api/v1/...`) for smooth upgrades.
+
+- Define and expose API schemas for clients via **OpenAPI/Swagger**.
+
+- Route requests to the correct **app viewsets**.
 
 ---
 
-## Directory Structure
+#### Directory Structure
 
-```bash
+```python
 src/api
-├── urls.py # Root API routing (entry point for all versions)
-└── v1 # First API version
-├── init.py
-├── routers.py # DRF routers for apps
-├── schema.py # OpenAPI/Swagger schema definitions
-└── views.py # API-level views (e.g., health check, API root)
+├── __pycache__/
+├── urls.py
+└── v1/
+    ├── __init__.py
+    ├── routers.py
+    ├── schema.py
+    ├── tests.py
+    └── views/
+        ├── analytics.py
+        ├── comments.py
+        ├── events.py
+        ├── media.py
+        ├── messaging.py
+        ├── posts.py
+        ├── tags.py
+        ├── users.py
+        └── __init__.py
 ```
 
-
----
+--- 
 
 ## Key Components
 
 ### 1. `urls.py`
 
+The central entry point for API routes.
 
-- Central entry point for all API routes.
 - Includes versioned routers (e.g., `v1.routers`).
+
 - Example:
 
 ```python
-  from django.urls import path, include
+from django.urls import path, include
 
-  urlpatterns = [
+urlpatterns = [
     path("v1/", include(("api.v1.routers", "v1"))),
-  ]
+]
 ```
 
 ### 2. `routers.py`
 
-- Defines DRF routers for different apps.
+- Registers DRF `viewsets` for different apps.
 
-- Ensures each app can register its endpoints without cluttering the API layer.
+- Keeps API endpoints organized and modular.
 
-- Example:
+Example:
 
 ```python
 from rest_framework.routers import DefaultRouter
-from .views import UserViewSet
-from .views import PostViewSet
+from .views import UserViewSet, PostViewSet
 
 router = DefaultRouter()
 router.register(r"users", UserViewSet, basename="users")
 router.register(r"posts", PostViewSet, basename="posts")
 
 urlpatterns = router.urls
+
 ```
 
-### 3. `schema.py`
+3. `schema.py`
 
-- Generates the OpenAPI schema for API documentation.
+Generates OpenAPI/Swagger schema for API documentation.
 
-- Allows integration with Swagger UI or ReDoc.
+Can be integrated with Swagger UI or ReDoc.
 
-- Example use case: exposing /api/v1/schema/.
+Example use: `/api/v1/schema/`.
 
-### 4. `views.py`
+4. `views/`
 
-- Contains generic API views not tied to specific apps.
+- Houses **generic API views** not tied to a specific app.
 
 Examples:
 
-   - HealthCheckView (returns server status).
+- `HealthCheckView`: Returns server status.
 
-   - APIRootView (lists available endpoints).
+- `APIRootView`: Lists available API endpoints.
 
----
+Example Endpoints
 
-## Example Endpoints
+Users
 
-- Users
+`POST /api/v1/users/` → Register a new user
 
-  - POST /api/v1/users/ → Register a new user.
+`POST /api/v1/users/login/` → Login
 
-  - POST /api/v1/users/login/ → Login 
+`GET /api/v1/users/me/` → Fetch logged-in user profile
 
-  - GET /api/v1/users/me/ → Fetch logged-in user profile.
+Posts
 
-- Posts
+`GET /api/v1/posts/` → List all posts
 
-  - GET /api/v1/posts/ → List posts.
+`POST /api/v1/posts/` → Create a post
 
-  - POST /api/v1/posts/ → Create a post.
+`GET /api/v1/posts/{id}/` → Retrieve a single post
 
-  - GET /api/v1/posts/{id}/ → Retrieve a single post.
+Health Check
 
-- Health Check
-
-  - GET /api/v1/health/ → Returns {"status": "ok"}.
+- `GET /api/v1/health/` → Returns `{"status": "ok"}`
 
 ---
 
 ## Contributor Guidelines
 
-When working with the API layer:
+**Do not implement business logic in the app layer**. Keep it in the respective API view in src/api/v1/views.
+The view is for each app separated with versioning with different 
 
-- **Do not implement business logic here.** Keep it in the respective app’s `services.py` or `views.py`.
+Register new endpoints by adding `viewsets` to `routers.py`.
 
-Add new endpoints by registering viewsets in `routers.py`.
+Update the OpenAPI schema (`schema.py`) when introducing new endpoints.
 
-Always update the OpenAPI schema (`schema.py`) when new endpoints are introduced.
+Ensure all new endpoints have tests in their respective apps.
 
-Ensure all new endpoints have `tests` in their respective app.
+#### Interactions with Other Layers
 
----
+| Layer / Directory           | Interaction / Purpose                                                |
+|-----------------------------|----------------------------------------------------------------------|
+| `src/apps/`                 | Provides viewsets, serializers, and services exposed by the API.    |
+| `src/core/`                 | Leverages core utilities to follow DRY principles.                  |
+| `src/common/templates/`     | May provide API-related templates (e.g., email notifications).      |
+| `src/config/urls.py`        | Includes `src/api/urls.py` as part of global URL routing.           |
 
-Interactions with Other Layers
-
-Apps (`src/apps`): Provides viewsets and serializers that the API exposes.
-
-Core (`src/core/`): Utilize the core functionalities to follow DRY principle.
-
-Common (`src/common/templates`): May provide API-related templates (e.g., email confirmations).
-
-Config (`src/config/urls.py`): Includes `src/api/urls.py` as part of global URL routing.
 
 ---
 
 ## Next Steps for Development
 
-- Add rate limiting and throttling for API endpoints.
+- Implement **rate-limiting** and throttling.
 
-- Implement API key authentication for external integrations.
+- Add **API key authentication** for third-party integrations.
 
-- Improve API documentation with Swagger UI or ReDoc.
+- Improve **API documentation** with Swagger UI or ReDoc.
 
-- Add version 2 (`v2`) when breaking changes are introduced.
+- Introduce version 2 (`v2`) when breaking changes are required.
+
+---
+
+## Documentation Links
+
+  - [API Layer](./api.md)
+
+  - [Users App](./apps/users.md)
+
+  - [Posts App](./apps/posts.md)
+
+  - [Analytics App](./apps/analytics.md)
+
+  - [Comments App](./apps/comments.md)
+
+  - [Events App](./apps/event.md)
+
+  - [Media App](./apps/media.md)
+
+  - [Messaging App](./apps/messaging.md)
+
+  - [Notifications App](./apps/notification.md)
+
+  - [Tags App](./apps/tags.md)
+
+  - [Common Layer](./common.md)
+
+  - [Config Layer](./config.md)
+
+  - [Core Layer](./core.md)
+
+  - [Development Guide](../DEVELOPMENT_GUIDE.md)
+
+---
+
+## License
+Django Rwanda is released under the [MIT License](../LICENSE).
+
+### Copyright (c) 2025 I. Fils 

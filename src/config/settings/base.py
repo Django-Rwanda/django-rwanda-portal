@@ -99,11 +99,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 DATABASES = {
-    'default': env.db("DATABASE_URL")     # Reads DATABASE_URL
-    # {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+    'default': #env.db("DATABASE_URL")     # Reads DATABASE_URL
+    {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
@@ -162,9 +162,13 @@ MEDIA_ROOT = BASE_DIR / 'common/media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# REST FRAMEWORK
+# REST FRAMEWORK SETTINGS
+
 
 REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 

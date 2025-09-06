@@ -4,5 +4,6 @@ app_name = "api"
 
 
 urlpatterns = [
-    path("v1/", include(("api.v1.routers", "v1"))),
+    # API Version 1
+    path("v1/", include(("api.v1.routers", "v1"), namespace="v1")),
 ]

@@ -1,8 +1,8 @@
-# Tags App (apps/tags/)
+# Tags App (`apps/tags/`)
 
 The `Tags app` provides a centralized system for creating, managing, and associating tags with content across the Django Rwanda project. Tags are primarily used for categorization, search, filtering, and content organization.
 
-## 📌 Purpose of tags/
+## 📌 Purpose of `tags/`
 
 Enable tagging functionality for posts, events, or other entities.
 
@@ -149,3 +149,45 @@ post.tags.add(tag)
 def get_posts_by_tag(tag_name):
     return Post.objects.filter(tags__name=tag_name)
 ```
+
+---
+
+## Documentation
+
+- [API Layer](../api.md)
+
+-  **Apps – includes**:
+
+    - [Users](./users.md)
+
+    - [Posts](./posts.md)
+
+    - [Analytics](./analytics.md)
+
+    - [Comments](./comments.md)
+
+    - [Events](./event.md)
+
+    - [Media](./media.md)
+
+    - [Messaging](./messaging.md)
+
+    - [Notifications](./notification.md)
+
+    - [Tags](./tags.md)
+
+- [Common Layer](../common.md)
+
+- [Config Layer](../config.md)
+
+- [Core Layer](../core.md)
+
+- [Development Guide](../../DEVELOPMENT_GUIDE.md)
+
+---
+
+## License
+
+This project is licensed under the [MIT License](../../LICENSE)
+
+### Copyright (c) 2025 I. Fils

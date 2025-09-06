@@ -61,3 +61,48 @@ By participating in **Django Rwanda**, you agree to follow this Code of Conduct.
 
 Thank you for helping build and improve **Django Rwanda**! 🚀  
 Your contributions strengthen the community and make this project accessible, maintainable, and scalable.
+
+--- 
+
+---
+
+## Documentation
+
+- [API Layer](./docs/api.md)
+
+-  **Apps – includes**:
+
+    - [Users](./docs/apps/users.md)
+
+    - [Posts](./docs/apps/posts.md)
+
+    - [Analytics](./docs/apps/analytics.md)
+
+    - [Comments](./docs/apps/comments.md)
+
+    - [Events](./docs/apps/event.md)
+
+    - [Media](./docs/apps/media.md)
+
+    - [Messaging](./docs/apps/messaging.md)
+
+    - [Notifications](./docs/apps/notification.md)
+
+    - [Tags](./docs/apps/tags.md)
+
+- [Common Layer](./docs/common.md)
+
+- [Config Layer](./docs/config.md)
+
+- [Core Layer](./docs/core.md)
+
+- [Development Guide](./DEVELOPMENT_GUIDE.md)
+
+---
+
+## License
+
+This project is licensed under the [MIT License](./LICENSE)
+
+### Copyright (c) 2025 I. Fils
+

@@ -40,7 +40,7 @@ The project is organized into the following primary layers:
 - Python 3.11+
 - PostgreSQL (or SQLite for development)
 - Docker (optional, for containerized setup)
-- Poetry or pip for dependency management
+- uv or pip for dependency management
 
 ### Installation
 
@@ -139,7 +139,7 @@ Key practices:
 
   - [Common Layer](./docs/common.md)
 
-  - [Config Layer](./docs/)
+  - [Config Layer](./docs/config.md)
 
   - [Core Layer](./docs/core.md)
 

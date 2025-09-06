@@ -1,4 +1,4 @@
-# Users App
+# Users App (`apps/users`)
 
 ## Overview
 The **Users app** is the foundation of the Django Rwanda project. It manages **authentication, authorization, and user profiles**. This app is responsible for defining the **custom user model**, handling registration, login, and user-related services. It ensures that all user-related operations are centralized, secure, and extendable for future needs.
@@ -153,3 +153,45 @@ When contributing to the Users app:
    - Enhance email verification with one-time codes or QR codes.
 
    - Improve admin UI with user analytics.
+
+---
+
+## Documentation
+
+- [API Layer](../api.md)
+
+-  **Apps – includes**:
+
+    - [Users](./users.md)
+
+    - [Posts](./posts.md)
+
+    - [Analytics](./analytics.md)
+
+    - [Comments](./comments.md)
+
+    - [Events](./event.md)
+
+    - [Media](./media.md)
+
+    - [Messaging](./messaging.md)
+
+    - [Notifications](./notification.md)
+
+    - [Tags](./tags.md)
+
+- [Common Layer](../common.md)
+
+- [Config Layer](../config.md)
+
+- [Core Layer](../core.md)
+
+- [Development Guide](../../DEVELOPMENT_GUIDE.md)
+
+---
+
+## License
+
+This project is licensed under the [MIT License](../../LICENSE)
+
+### Copyright (c) 2025 I. Fils

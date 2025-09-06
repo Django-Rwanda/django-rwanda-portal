@@ -1,4 +1,4 @@
-# Config Layer (config/)
+# Config Layer (`src/config/`)
 
 The `Config layer `is the central configuration hub for the Django Rwanda project. It manages all settings, environment configurations, routing, and application startup. This layer ensures that the project can run consistently across development, testing, staging, and production environments.
 
@@ -115,4 +115,42 @@ This layer ensures consistent behavior across all environments, providing a clea
 
 ---
 
+## Documentation
 
+- [API Layer](./api.md)
+
+-  **Apps – includes**:
+
+    - [Users](./apps/users.md)
+
+    - [Posts](./apps/posts.md)
+
+    - [Analytics](./apps/analytics.md)
+
+    - [Comments](./apps/comments.md)
+
+    - [Events](./apps/event.md)
+
+    - [Media](./apps/media.md)
+
+    - [Messaging](./apps/messaging.md)
+
+    - [Notifications](./apps/notification.md)
+
+    - [Tags](./apps/tags.md)
+
+- [Common Layer](./common.md)
+
+- [Config Layer](./config.md)
+
+- [Core Layer](./core.md)
+
+- [Development Guide](../DEVELOPMENT_GUIDE.md)
+
+---
+
+## License
+
+This project is licensed under the [MIT License](../LICENSE)
+
+### Copyright (c) 2025 I. Fils

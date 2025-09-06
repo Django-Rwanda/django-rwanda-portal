@@ -22,12 +22,12 @@ from django.conf import settings
 from django.conf.urls.static import static
     
 
-def home(request):
-    return render()
-
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", lambda request: render(request, "home.html"), name="home"),
+    
+    # APIs
     path("api/", include(("api.urls", "api"))),
 
     # Apps

@@ -1,9 +1,15 @@
 from django.urls import path, include
-from .views import *
+from django.http import JsonResponse, HttpResponse
 
-app_name = "api"
+
+
+app_name = "v1"
+
+def testing_view(request):
+    return HttpResponse("API is working!")
 
 urlpatterns = [
-    # import the urls
+    path("", testing_view, name="test-api"),
+    path("add", lambda request: HttpResponse("hello world"), name="add-api"),
 ]
 

@@ -19,8 +19,8 @@ For an overview of the project structure and layers, please refer to the [README
 2. Clone your fork locally:
 
 ```bash
-git clone https://github.com/djangorwanda/Django-Rwanda.git
-cd Django-Rwanda
+git clone https://github.com/django-rwanda/django-rwanda-portal.git
+cd django-rwanda-portal
 ```
 
 3. Set up your development environment:
@@ -74,10 +74,6 @@ docs: update API documentation
 
 1. Push your branch to your fork:
 
-```bash
-Push your branch to your fork:
-```
-
 2. Open a Pull Request against the main repository.
 
 3. Link related issues and describe the changes clearly.
@@ -115,9 +111,15 @@ Push your branch to your fork:
 - Run all tests:
 
 ```bash
-python src/manage.py test
-# or if using pytest
-pytest
+# using pytest
+cd ./src
+uv run pytest 
+
+# or using multiple core for speed
+uv run pytest -n auto
+
+# using fixed number of core
+uv run pytest -n 4
 ```
 - Include tests for:
 
@@ -174,4 +176,42 @@ Your contributions strengthen the community and make this project accessible, ma
 
 ---
 
+## Documentation
 
+- [API Layer](./docs/api.md)
+
+-  **Apps – includes**:
+
+    - [Users](./docs/apps/users.md)
+
+    - [Posts](./docs/apps/posts.md)
+
+    - [Analytics](./docs/apps/analytics.md)
+
+    - [Comments](./docs/apps/comments.md)
+
+    - [Events](./docs/apps/event.md)
+
+    - [Media](./docs/apps/media.md)
+
+    - [Messaging](./docs/apps/messaging.md)
+
+    - [Notifications](./docs/apps/notification.md)
+
+    - [Tags](./docs/apps/tags.md)
+
+- [Common Layer](./docs/common.md)
+
+- [Config Layer](./docs/config.md)
+
+- [Core Layer](./docs/core.md)
+
+- [Development Guide](./DEVELOPMENT_GUIDE.md)
+
+---
+
+## License
+
+This project is licensed under the [MIT License](./LICENSE)
+
+### Copyright (c) 2025 I. Fils

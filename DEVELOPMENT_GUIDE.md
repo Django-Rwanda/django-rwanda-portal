@@ -39,8 +39,8 @@ Refer to [README.md](./README.md) for a detailed project overview.
 
 1. **Clone the repository**:
 ```bash
-git clone https://github.com/your-org/django-rwanda.git
-cd django-rwanda
+git clone https://github.com/django-rwanda/django-rwanda-portal.git
+cd django-rwanda-portal
 ```
 2. **Install dependencies**:
 
@@ -198,3 +198,43 @@ Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`.
 By following these development guidelines, contributors help maintain a consistent, high-quality, and collaborative Django Rwanda project.
 
 ---
+
+## Documentation
+
+- [API Layer](./docs/api.md)
+
+-  **Apps – includes**:
+
+    - [Users](./docs/apps/users.md)
+
+    - [Posts](./docs/apps/posts.md)
+
+    - [Analytics](./docs/apps/analytics.md)
+
+    - [Comments](./docs/apps/comments.md)
+
+    - [Events](./docs/apps/event.md)
+
+    - [Media](./docs/apps/media.md)
+
+    - [Messaging](./docs/apps/messaging.md)
+
+    - [Notifications](./docs/apps/notification.md)
+
+    - [Tags](./docs/apps/tags.md)
+
+- [Common Layer](./docs/common.md)
+
+- [Config Layer](./docs/config.md)
+
+- [Core Layer](./docs/core.md)
+
+- [Development Guide](./DEVELOPMENT_GUIDE.md)
+
+---
+
+## License
+
+This project is licensed under the [MIT License](./LICENSE)
+
+### Copyright (c) 2025 I. Fils

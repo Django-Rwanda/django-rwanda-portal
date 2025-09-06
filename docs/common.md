@@ -1,4 +1,4 @@
-# Common App (common/)
+# Common App (`src/common/`)
 
 # Overview
 
@@ -129,3 +129,45 @@ send_mail(
 - Consider extracting common email themes into a layout system (`base_email.html`).
 
 This way, `common/` is strictly presentation support (assets and templates), while `core/` remains logic and abstractions.
+
+---
+
+## Documentation
+
+- [API Layer](./api.md)
+
+-  **Apps – includes**:
+
+    - [Users](./apps/users.md)
+
+    - [Posts](./apps/posts.md)
+
+    - [Analytics](./apps/analytics.md)
+
+    - [Comments](./apps/comments.md)
+
+    - [Events](./apps/event.md)
+
+    - [Media](./apps/media.md)
+
+    - [Messaging](./apps/messaging.md)
+
+    - [Notifications](./apps/notification.md)
+
+    - [Tags](./apps/tags.md)
+
+- [Common Layer](./common.md)
+
+- [Config Layer](./config.md)
+
+- [Core Layer](./core.md)
+
+- [Development Guide](../DEVELOPMENT_GUIDE.md)
+
+---
+
+## License
+
+This project is licensed under the [MIT License](../LICENSE)
+
+### Copyright (c) 2025 I. Fils
