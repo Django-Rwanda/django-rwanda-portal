@@ -1,153 +1,182 @@
-# Django Rwanda
+# Django Rwanda Portal
 
-## Overview
-**Django Rwanda** is an open-source project aimed at fostering the Django developer community in Rwanda. It provides a modular, scalable Django-based system with multiple applications designed to handle analytics, content management, messaging, notifications, media storage, events, and user management. The project emphasizes clean architecture, maintainability, and contribution-friendly development practices.
+# Overview
 
-The system follows a **layered architecture**, separating concerns into distinct modules and apps, making it easier for contributors to understand, extend, and maintain the codebase.
+**Django Rwanda Portal** is an open-source project designed to foster collaboration and knowledge sharing within the Django community in Rwanda. It provides a modular and **scalable system** built with Django, structured into reusable applications and layers for clean architecture, maintainability, and community-driven contributions.
+
+The system emphasizes:
+
+- **Layered architecture** for separation of concerns.
+
+- **Reusability & DRY principles.**
+
+- **Community collaboration** through well-documented code and contribution guidelines.
 
 ---
 
 ## Purpose
-The main objectives of Django Rwanda are:
-- To serve as a reference architecture for Django projects in Rwanda.
-- To provide contributors a clear, organized system to learn and contribute.
-- To implement real-world features like user management, posts, notifications, and media handling.
-- To promote collaboration, testing, and maintainability across the Django community.
+
+- Serve as a **reference architecture** for Django projects in Rwanda.
+
+- Provide contributors a structured and organized system to learn from and extend.
+
+- Implement real-world features like **user management, posts, notifications, messaging, events, and media handling**.
+
+- Encourage collaboration, testing, and maintainability within the Django community.
 
 ---
 
-## Project Layers
+## Project Structure
 
 The project is organized into the following primary layers:
 
-| Layer / Directory | Purpose |
-|------------------|---------|
-| `src/api`        | The API layer exposing REST endpoints. Handles versioning, routing, and schema definitions. |
-| `src/apps/*`     | Individual applications encapsulating specific business logic, such as `users`, `posts`, `analytics`, `messaging`, `notifications`, `media`, `comments`, `tags`, and `events`. Each app has its own models, serializers, views, URLs, services, and tests. |
-| `src/common`     | Shared resources like static files, templates, and email templates used across multiple apps. |
-| `src/config`     | Core project configuration including Django settings, URL routing, and WSGI/ASGI entry points. |
-| `src/core`       | Infrastructure utilities, including custom database helpers, middleware, security features, and generic utilities. |
-| `docker`         | Docker-related files for containerization, including `Dockerfile`, `docker-compose.yml`, and Nginx configuration. |
-| `scripts`        | Automation scripts for project setup, maintenance, or deployment tasks. |
-| `tests`          | Global testing resources and integration tests for the project. |
+Layer / Directory	Purpose
+src/api	API layer exposing versioned REST endpoints (v1/). Handles routing and schema definitions.
+src/apps/*	Domain-specific applications (users, posts, analytics, messaging, notifications, media, comments, tags, events). Each app includes its own models, serializers, views, services, tests, etc.
+src/common	Shared templates, static files, and reusable email templates.
+src/config	Django project configuration (settings for dev, prod, staging, test), URL routing, WSGI/ASGI entry points, and Celery integration.
+src/core	Core infrastructure utilities: database mixins, middleware, security helpers, constants, and exceptions.
+docker/	Docker setup with Dockerfile, docker-compose.yml, and Nginx configuration.
+infra/	Infrastructure-related configuration (future use for deployments).
+scripts/	Automation scripts for project setup and maintenance.
+docs/	Documentation for apps, layers, and developer guides.
 
 ---
 
 ## Getting Started
 
-### Prerequisites
+## Prerequisites
 
-- Python 3.11+
-- PostgreSQL (or SQLite for development)
-- Docker (optional, for containerized setup)
-- uv or pip for dependency management
+Before contributing or running the project, ensure you have knowledge of or access to:
 
-### Installation
+- Programming Languages: Python, JavaScript (vanilla)
 
-1. Clone the repository:
+- Frameworks & Libraries: Django, jQuery
+
+- Databases & Caching: PostgreSQL, Redis
+
+- Containerization & Deployment: Docker, docker-compose (Kubernetes or cloud providers like AWS/GCP/Azure optional)
+
+- Python Dependencies: Defined in pyproject.toml and requirements.txt
+
+- Package Managers: pip or [uv](https://docs.astral.sh/uv/)
+
+---
+
+## Installation
+
+Clone the repository:
 
 ```bash
-git clone https://github.com/djangorwanda/Django-Rwanda.git
-cd Django-Rwanda
+git clone https://github.com/django-rwanda/django-rwanda-portal.git
+cd django-rwanda-portal
 ```
-2. Install dependencies:
+
+---
+
+## Install dependencies:
 
 ```bash
 # using uv
 uv sync
+
 # or using pip
 pip install -r requirements.txt
 ```
-3. Configure environment variables:
+
+---
+
+## Configure environment variables:
 
 ```bash
 cp env/.env.example env/.env
 ```
 
-4. Run database migrations:
+Run migrations:
 
 ```bash
-# makemigrations
 python src/manage.py makemigrations
-# or 
-uv run src/manage.py makemigrations
-
-# migrate the database
-python ./src/manage.py migrate
-# or 
-uv run ./src/manage.py migrate
+python src/manage.py migrate
 ```
 
-5. Start the development server:
+---
+
+## Start the development server:
 
 ```bash
-uv run ./src/manage.py runserver
-# or 
-python3 ./src/manage.py runserver
+python src/manage.py runserver
 ```
 
-### Using Docker ***(in progress)***
+---
 
+## Using Docker (Optional)
 
-To run the project using Docker:
+To run the project with Docker:
 
 ```bash
 docker-compose up --build
 ```
 
-This sets up the services including Django, database, and Nginx.
+This sets up Django, PostgreSQL, and Nginx services.
 
 ---
 
-Contribution Guidelines
----
+## Contribution Guidelines
 
-### Before contributing, review the following:
+Before contributing, review:
 
-   - [Code of Conduct](./CODE_OF_CONDUCT.md)
-   - [Contributing Guidelines](./CONTRIBUTING.md)
+- [Code of Conduct](./CODE_OF_CONDUCT.md)
+
+- [Contributing Guidelines](./CONTRIBUTING.md)
 
 Key practices:
 
-   - Use feature branches and submit pull requests.
-   - Write tests for new features or bug fixes.
-   - Follow the project’s coding standards (PEP8, type hints).
+- Work on feature branches, submit pull requests.
+
+- Write tests for new features and bug fixes.
+
+- Follow project coding standards (PEP8, type hints).
+
+- Update documentation when introducing new modules or features.
 
 ---
 
-## Documentation Links
+## Documentation
 
-  - [API Layer](./docs/api.md)
+- [API Layer](./docs/api.md)
 
-  - [Users App](./docs/apps/users.md)
+-  **Apps – includes**:
 
-  - [Posts App](./docs/apps/posts.md)
+    - [Users](./docs/apps/users.md)
 
-  - [Analytics App](./docs/apps/analytics.md)
+    - [Posts](./docs/apps/posts.md)
 
-  - [Comments App](./docs/apps/comments.md)
+    - [Analytics](./docs/apps/analytics.md)
 
-  - [Events App](./docs/apps/event.md)
+    - [Comments](./docs/apps/comments.md)
 
-  - [Media App](./docs/apps/media.md)
+    - [Events](./docs/apps/event.md)
 
-  - [Messaging App](./docs/apps/messaging.md)
+    - [Media](./docs/apps/media.md)
 
-  - [Notifications App](./docs/apps/notification.md)
+    - [Messaging](./docs/apps/messaging.md)
 
-  - [Tags App](./docs/apps/tags.md)
+    - [Notifications](./docs/apps/notification.md)
 
-  - [Common Layer](./docs/common.md)
+    - [Tags](./docs/apps/tags.md)
 
-  - [Config Layer](./docs/config.md)
+- [Common Layer](./docs/common.md)
 
-  - [Core Layer](./docs/core.md)
+- [Config Layer](./docs/config.md)
 
-  - [Development Guide](./DEVELOPMENT_GUIDE.md)
+- [Core Layer](./docs/core.md)
+
+- [Development Guide](./DEVELOPMENT_GUIDE.md)
 
 ---
 
 ## License
-Django Rwanda is released under the [MIT License](./LICENSE).
+
+This project is licensed under the [MIT License](./LICENSE)
 
 ### Copyright (c) 2025 I. Fils
