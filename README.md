@@ -30,16 +30,18 @@ The system emphasizes:
 
 The project is organized into the following primary layers:
 
-Layer / Directory	Purpose
-src/api	API layer exposing versioned REST endpoints (v1/). Handles routing and schema definitions.
-src/apps/*	Domain-specific applications (users, posts, analytics, messaging, notifications, media, comments, tags, events). Each app includes its own models, serializers, views, services, tests, etc.
-src/common	Shared templates, static files, and reusable email templates.
-src/config	Django project configuration (settings for dev, prod, staging, test), URL routing, WSGI/ASGI entry points, and Celery integration.
-src/core	Core infrastructure utilities: database mixins, middleware, security helpers, constants, and exceptions.
-docker/	Docker setup with Dockerfile, docker-compose.yml, and Nginx configuration.
-infra/	Infrastructure-related configuration (future use for deployments).
-scripts/	Automation scripts for project setup and maintenance.
-docs/	Documentation for apps, layers, and developer guides.
+| **Layer / Directory** | **Purpose** |
+|------------------------|-------------|
+| **src/api** | API layer exposing versioned REST endpoints (`v1/`). Handles routing and schema definitions. |
+| **src/apps/*** | Domain-specific applications (`users`, `posts`, `analytics`, `messaging`, `notifications`, `media`, `comments`, `tags`, `events`). Each app includes its own models, serializers, views, services, tests, etc. |
+| **src/common** | Shared templates, static files, and reusable email templates. |
+| **src/config** | Django project configuration (settings for `dev`, `prod`, `staging`, `test`), URL routing, WSGI/ASGI entry points, and Celery integration. |
+| **src/core** | Core infrastructure utilities: database mixins, middleware, security helpers, constants, and exceptions. |
+| **docker/** | Docker setup with `Dockerfile`, `docker-compose.yml`, and Nginx configuration. |
+| **infra/** | Infrastructure-related configuration (future use for deployments). |
+| **scripts/** | Automation scripts for project setup and maintenance. |
+| **docs/** | Documentation for apps, layers, and developer guides. |
+
 
 ---
 
